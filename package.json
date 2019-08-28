@@ -28,6 +28,12 @@
   "engines": {
     "node": ">=12.9.1"
   },
+  "dependencies": {
+    "@types/inversify": "^2.0.33",
+    "@types/reflect-metadata": "^0.1.0",
+    "inversify": "^5.0.1",
+    "reflect-metadata": "^0.1.13"
+  },
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
@@ -74,6 +80,7 @@
     "gulp-babel": "^8.0.0",
     "gulp-cached": "^1.1.1",
     "gulp-eslint": "^6.0.0",
+    "gulp-exec": "^4.0.0",
     "gulp-mocha": "^7.0.1",
     "gulp-newer": "^1.4.0",
     "gulp-rename": "^1.4.0",

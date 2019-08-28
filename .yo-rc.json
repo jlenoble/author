@@ -3,7 +3,7 @@
     "createdWith": "0.6.0-8",
     "modifiedWith": "0.6.0-8",
     "createdOn": "2019-08-27T07:12:30.426Z",
-    "modifiedOn": "2019-08-27T08:38:49.539Z",
+    "modifiedOn": "2019-08-28T13:17:50.245Z",
     "gulp": true,
     "srcDir": "src",
     "testDir": "test",
@@ -16,7 +16,7 @@
     "extensions": [
       "ts"
     ],
-    "jupyter": false,
+    "jupyter": true,
     "antlr4": false,
     "server": true,
     "client": false,
