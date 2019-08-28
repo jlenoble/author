@@ -1,10 +1,9 @@
-import * as interfaces from "./interfaces";
-
-export type AuthorInput = string | Author;
+import { Author as AuthorInterface } from "./interfaces";
+import { AuthorInput } from "./types";
 
 export const authorRegExp = /^\s*([^(<]+)(?:\s+<(.+)>)?(?:\s+\((.+)\))?\s*$/;
 
-export default class Author implements interfaces.Author {
+export class Author implements AuthorInterface {
   readonly name: string;
   readonly email?: string;
   readonly url?: string;

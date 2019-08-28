@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import Author from "../src/author";
+import { Author } from "../src/author";
 
 describe("class Author", (): void => {
   const name = "Barney Rubble";
