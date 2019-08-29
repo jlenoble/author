@@ -1,4 +1,4 @@
-import { NormalizedAuthor } from "./interfaces";
+import { Author as RawAuthor, NormalizedAuthor } from "./interfaces";
 import { AuthorInput, Name, Email, Url } from "./types";
 
 export const authorRegExp = /^\s*([^(<]+)(?:\s+<(.+)>)?(?:\s+\((.+)\))?\s*$/;
@@ -23,6 +23,27 @@ export class Author implements NormalizedAuthor {
   }
   public set url(url: string) {
     this._url = new Url(url);
+  }
+
+  public get author(): RawAuthor {
+    const author: RawAuthor = { name: this.name };
+    const email = this.email;
+    const url = this.url;
+
+    if (email) {
+      author.email = email;
+    }
+
+    if (url) {
+      author.url = url;
+    }
+
+    return author;
+  }
+  public set author(author: RawAuthor) {
+    this._name = new Name(author.name);
+    this._email = new Email(author.email || "");
+    this._url = new Url(author.url || "");
   }
 
   private _name: Name;

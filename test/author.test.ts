@@ -75,6 +75,38 @@ describe("class Author", (): void => {
   });
 
   describe("can be set with", (): void => {
+    it("{ name }", (): void => {
+      const author = new Author({ name: "John Doe" });
+      author.author = { name };
+      expect(author.name).to.equal(name);
+      expect(author.email).to.equal("");
+      expect(author.url).to.equal("");
+    });
+
+    it("{ name, email }", (): void => {
+      const author = new Author({ name: "John Doe" });
+      author.author = { name, email };
+      expect(author.name).to.equal(name);
+      expect(author.email).to.equal(email);
+      expect(author.url).to.equal("");
+    });
+
+    it("{ name, url }", (): void => {
+      const author = new Author({ name: "John Doe" });
+      author.author = { name, url };
+      expect(author.name).to.equal(name);
+      expect(author.email).to.equal("");
+      expect(author.url).to.equal(url);
+    });
+
+    it("{ name, email, url }", (): void => {
+      const author = new Author({ name: "John Doe" });
+      author.author = { name, email, url };
+      expect(author.name).to.equal(name);
+      expect(author.email).to.equal(email);
+      expect(author.url).to.equal(url);
+    });
+
     it("name", (): void => {
       const author = new Author(name);
       author.name = "John Doe";
