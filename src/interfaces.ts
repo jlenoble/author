@@ -5,3 +5,9 @@ export interface Author {
   email?: string;
   url?: string;
 }
+
+export interface NormalizedAuthor extends Author {
+  name: string;
+  email: string;
+  url: string;
+}

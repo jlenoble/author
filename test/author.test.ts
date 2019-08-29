@@ -10,21 +10,21 @@ describe("class Author", (): void => {
     it("{ name }", (): void => {
       const author = new Author({ name });
       expect(author.name).to.equal(name);
-      expect(author.email).to.be.undefined;
-      expect(author.url).to.be.undefined;
+      expect(author.email).to.equal("");
+      expect(author.url).to.equal("");
     });
 
     it("{ name, email }", (): void => {
       const author = new Author({ name, email });
       expect(author.name).to.equal(name);
       expect(author.email).to.equal(email);
-      expect(author.url).to.be.undefined;
+      expect(author.url).to.equal("");
     });
 
     it("{ name, url }", (): void => {
       const author = new Author({ name, url });
       expect(author.name).to.equal(name);
-      expect(author.email).to.be.undefined;
+      expect(author.email).to.equal("");
       expect(author.url).to.equal(url);
     });
 
@@ -38,21 +38,21 @@ describe("class Author", (): void => {
     it("name", (): void => {
       const author = new Author(name);
       expect(author.name).to.equal(name);
-      expect(author.email).to.be.undefined;
-      expect(author.url).to.be.undefined;
+      expect(author.email).to.equal("");
+      expect(author.url).to.equal("");
     });
 
     it("name <email>", (): void => {
       const author = new Author(`${name} <${email}>`);
       expect(author.name).to.equal(name);
       expect(author.email).to.equal(email);
-      expect(author.url).to.be.undefined;
+      expect(author.url).to.equal("");
     });
 
     it("name (url)", (): void => {
       const author = new Author(`${name} (${url})`);
       expect(author.name).to.equal(name);
-      expect(author.email).to.be.undefined;
+      expect(author.email).to.equal("");
       expect(author.url).to.equal(url);
     });
 
@@ -79,8 +79,8 @@ describe("class Author", (): void => {
       const author = new Author(name);
       author.name = "John Doe";
       expect(author.name).to.equal("John Doe");
-      expect(author.email).to.be.undefined;
-      expect(author.url).to.be.undefined;
+      expect(author.email).to.equal("");
+      expect(author.url).to.equal("");
     });
 
     it("email", (): void => {
@@ -88,14 +88,14 @@ describe("class Author", (): void => {
       author.email = email;
       expect(author.name).to.equal(name);
       expect(author.email).to.equal(email);
-      expect(author.url).to.be.undefined;
+      expect(author.url).to.equal("");
     });
 
     it("url", (): void => {
       const author = new Author(name);
       author.url = url;
       expect(author.name).to.equal(name);
-      expect(author.email).to.be.undefined;
+      expect(author.email).to.equal("");
       expect(author.url).to.equal(url);
     });
   });
