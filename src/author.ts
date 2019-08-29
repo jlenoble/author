@@ -4,16 +4,25 @@ import { AuthorInput, Name, Email, Url } from "./types";
 export const authorRegExp = /^\s*([^(<]+)(?:\s+<(.+)>)?(?:\s+\((.+)\))?\s*$/;
 
 export class Author implements AuthorInterface {
-  public get name(this: Author): string {
+  public get name(): string {
     return this._name.toString();
   }
-
-  public get email(this: Author): string | undefined {
-    return this._email && this._email.toString();
+  public set name(name: string) {
+    this._name = new Name(name);
   }
 
-  public get url(this: Author): string | undefined {
+  public get email(): string | undefined {
+    return this._email && this._email.toString();
+  }
+  public set email(email: string | undefined) {
+    this._email = new Email(email);
+  }
+
+  public get url(): string | undefined {
     return this._url && this._url.toString();
+  }
+  public set url(url: string | undefined) {
+    this._url = new Url(url);
   }
 
   private _name: Name;
