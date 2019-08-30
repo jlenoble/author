@@ -38,7 +38,6 @@ interface FormattedStringInterface<
   N extends keyof typeof Names,
   F extends keyof typeof Formats
 > {
-  [Symbol.toStringTag]: string;
   name: N;
   format: F;
 }
