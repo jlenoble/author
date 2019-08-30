@@ -1,5 +1,15 @@
-import { Author as RawAuthor, NormalizedAuthor } from "./interfaces";
-import { AuthorInput, Name, Email, Url } from "./types";
+import {
+  Author as RawAuthor,
+  NormalizedAuthor,
+  AuthorInput,
+  Name,
+  Email,
+  Url
+} from "./interfaces";
+
+import { Name as NameClass } from "./name";
+import { Email as EmailClass } from "./email";
+import { Url as UrlClass } from "./url";
 
 export const authorRegExp = /^\s*([^(<]+)(?:\s+<(.+)>)?(?:\s+\((.+)\))?\s*$/;
 
@@ -8,21 +18,21 @@ export class Author implements NormalizedAuthor {
     return this._name.toString();
   }
   public set name(name: string) {
-    this._name = new Name(name);
+    this._name = new NameClass(name);
   }
 
   public get email(): string {
     return this._email.toString();
   }
   public set email(email: string) {
-    this._email = new Email(email);
+    this._email = new EmailClass(email);
   }
 
   public get url(): string {
     return this._url.toString();
   }
   public set url(url: string) {
-    this._url = new Url(url);
+    this._url = new UrlClass(url);
   }
 
   public get author(): RawAuthor {
@@ -39,9 +49,9 @@ export class Author implements NormalizedAuthor {
     return author;
   }
   public set author(author: RawAuthor) {
-    this._name = new Name(author.name);
-    this._email = new Email(author.email || "");
-    this._url = new Url(author.url || "");
+    this._name = new NameClass(author.name);
+    this._email = new EmailClass(author.email || "");
+    this._url = new UrlClass(author.url || "");
   }
 
   private _name: Name;
@@ -53,16 +63,16 @@ export class Author implements NormalizedAuthor {
       const match = author.match(authorRegExp);
 
       if (match) {
-        this._name = new Name(match[1]);
-        this._email = new Email(match[2] || "");
-        this._url = new Url(match[3] || "");
+        this._name = new NameClass(match[1]);
+        this._email = new EmailClass(match[2] || "");
+        this._url = new UrlClass(match[3] || "");
       } else {
         throw new Error(`Invalid input string ${author}`);
       }
     } else {
-      this._name = new Name(author.name);
-      this._email = new Email(author.email || "");
-      this._url = new Url(author.url || "");
+      this._name = new NameClass(author.name);
+      this._email = new EmailClass(author.email || "");
+      this._url = new UrlClass(author.url || "");
     }
 
     Object.defineProperty(this, "_name", {
