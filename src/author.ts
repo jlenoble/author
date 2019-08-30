@@ -27,15 +27,13 @@ export class Author implements NormalizedAuthor {
 
   public get author(): RawAuthor {
     const author: RawAuthor = { name: this.name };
-    const email = this.email;
-    const url = this.url;
 
-    if (email) {
-      author.email = email;
+    if (this.email) {
+      author.email = this.email;
     }
 
-    if (url) {
-      author.url = url;
+    if (this.url) {
+      author.url = this.url;
     }
 
     return author;
