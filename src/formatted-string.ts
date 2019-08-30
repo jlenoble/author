@@ -69,7 +69,7 @@ export default function makeFormattedStringClass<
   class FormattedString extends String
     implements FormattedStringInterface<N, F> {
     public get [Symbol.toStringTag](): string {
-      return this.name;
+      return nameGetter();
     }
 
     public get name(): N {
