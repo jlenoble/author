@@ -65,8 +65,20 @@ export class Author implements NormalizedAuthor {
       this._url = new Url(author.url || "");
     }
 
-    Object.defineProperty(this, "_name", { enumerable: false });
-    Object.defineProperty(this, "_email", { enumerable: false });
-    Object.defineProperty(this, "_url", { enumerable: false });
+    Object.defineProperty(this, "_name", {
+      enumerable: false,
+      configurable: false
+    });
+    Object.defineProperty(this, "_email", {
+      enumerable: false,
+      configurable: false
+    });
+    Object.defineProperty(this, "_url", {
+      enumerable: false,
+      configurable: false
+    });
   }
 }
+
+Object.freeze(Author);
+Object.freeze(Author.prototype);
