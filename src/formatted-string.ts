@@ -38,6 +38,7 @@ interface FormattedStringInterface<
   N extends keyof typeof Names,
   F extends keyof typeof Formats
 > {
+  [Symbol.toStringTag]: string;
   name: N;
   format: F;
 }
@@ -65,7 +66,8 @@ export default function makeFormattedStringClass<
   const nameGetter = makeNameGetter(name);
   const formatGetter = makeFormatGetter(format);
 
-  class FormattedString extends String {
+  class FormattedString extends String
+    implements FormattedStringInterface<N, F> {
     public get [Symbol.toStringTag](): string {
       return this.name;
     }
